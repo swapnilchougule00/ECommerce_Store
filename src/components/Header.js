@@ -34,8 +34,8 @@ function Header() {
           onClick={() => clickedCart()}
         >
           <p className="tracking-widest">CART</p>
-{cartItems.lenght >0 ?
-          <p className="tracking-widest">{cartItems.lenght}</p> : null}
+{cartItems.lenght >0 &&
+          <p className="tracking-widest">{cartItems.lenght}</p>}
 
         </button>
       </div>
