@@ -42,13 +42,15 @@ const cartReducer = createReducer(
 
     calculate: (state) => {
       let sum = 0;
-      state.cartItems.forEach((i) => {
+      if(state.cartItems.length >0 ){
+        state.cartItems.forEach((i) => {
         sum += i.price * i.quantity;
         state.subtotal = sum;
         state.shipping = 10;
         state.tax = +(state.subtotal * 0.18).toFixed();
         state.Total = +(state.subtotal + state.shipping + state.tax).toFixed();
       });
+      }
     },
   }
 );
