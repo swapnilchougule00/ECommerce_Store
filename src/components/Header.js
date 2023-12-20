@@ -36,7 +36,7 @@ const itemCount = cartItems?.length
         >
           <p className="tracking-widest">CART</p>
         </button>
-                    <p className="">{itemCount}</p>
+        {itemCount>0 && <p className="">{itemCount}</p>}    
 
       </div>
     </div>
