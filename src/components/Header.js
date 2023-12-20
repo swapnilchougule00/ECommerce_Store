@@ -35,7 +35,7 @@ function Header() {
         >
           <p className="tracking-widest">CART</p>
 
-          <p className="">{cartItems.lenght}</p>
+          <p className="">77</p>
 
         </button>
       </div>
