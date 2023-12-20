@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
-import { useSelector } from 'react-redux'
 
 function Header() {
   const [border, setBorder] = useState(false);
   const navigate = useNavigate();
-  const {cartItems} = useSelector(state=>state.cart)
 
   const clickedHome = () => {
     setBorder(false);
