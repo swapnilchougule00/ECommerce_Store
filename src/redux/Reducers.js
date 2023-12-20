@@ -50,6 +50,12 @@ const cartReducer = createReducer(
         state.tax = +(state.subtotal * 0.18).toFixed();
         state.Total = +(state.subtotal + state.shipping + state.tax).toFixed();
       });
+      }else{
+        sum += 0
+        state.subtotal = 0;
+        state.shipping = 0;
+        state.tax = 0
+        state.Total =0
       }
     },
   }
