@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 function Header() {
   const [border, setBorder] = useState(false);
