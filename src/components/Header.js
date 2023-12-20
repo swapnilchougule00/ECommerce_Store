@@ -31,12 +31,13 @@ const itemCount = cartItems?.length
           <p className="tracking-widest">HOME</p>
         </button>
         <button
-          className={border ? "border-rose-500  border-b-2" : ""}
+          className={` ${border ? "border-rose-500 border-b-2" : "" } flex`}
           onClick={() => clickedCart()}
         >
           <p className="tracking-widest">CART</p>
+                  {itemCount>0 && <p className="">{itemCount}</p>}    
+
         </button>
-        {itemCount>0 && <p className="">{itemCount}</p>}    
 
       </div>
     </div>
