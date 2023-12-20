@@ -35,7 +35,7 @@ const itemCount = cartItems?.length
           onClick={() => clickedCart()}
         >
           <p className="tracking-widest">CART</p>
-                  {itemCount>0 && <p className="">{itemCount}</p>}    
+                  {itemCount>0 && <p className="text-rose-500 ml-1">{itemCount}</p>}    
 
         </button>
 
