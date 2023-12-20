@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import {  useSelector } from 'react-redux'
 
 function Header() {
   const [border, setBorder] = useState(false);
   const navigate = useNavigate();
+  const {cartItems} = useSelector(state=>state.cart)
+const itemCount = cartItems?.length
 
   const clickedHome = () => {
     setBorder(false);
@@ -32,10 +35,9 @@ function Header() {
           onClick={() => clickedCart()}
         >
           <p className="tracking-widest">CART</p>
-
-          <p className="">77</p>
-
         </button>
+                    <p className="">{itemCount}</p>
+
       </div>
     </div>
   );
