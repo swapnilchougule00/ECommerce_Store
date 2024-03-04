@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Loading from "./Loading";
 
 function Feed() {
@@ -20,6 +20,15 @@ function Feed() {
       setLoding(false);
     }
   };
+
+  const { cartItems } = useSelector(state => state.cart)
+
+  const remove = (id)=>{
+    dispatch({
+      type: 'remove',
+      payload : id
+        })
+  }
 
   const addToCart = (object) => {
     dispatch({ type: "addToCart", payload: object });
@@ -55,14 +64,26 @@ function Feed() {
               <p className="font-bold md:text-xl">price - ${price}</p>
             </div>
             <div className=" md:space-x-8 font-bold text-sm w-full flex justify-center  pt-2">
-              <button
-                onClick={() =>
-                  addToCart({ title, id, image, price, quantity: 1 })
-                }
-                className="border rounded-2xl  border-black/50 px-4 md:p-2 bg-black text-white hover:bg-white hover:text-black"
-              >
-                Add to Cart
-              </button>
+              {
+                cartItems.some(p => p.id === id) ?
+                  <button
+                    onClick={() =>
+                      remove(id)
+                    }
+                    className="border rounded-lg  border-black/50 px-4 md:p-2 bg-red-500 text-white hover:bg-red-500/60 hover:text-black"
+                  >
+                    Remove from the Cart
+                  </button> :
+                  <button
+                    onClick={() =>
+                      addToCart({ title, id, image, price, quantity: 1 })
+                    }
+                    className="border rounded-lg  border-black/50 px-4 md:p-2 bg-green-500 text-white hover:bg-green-500/60 hover:text-black"
+                  >
+                    Add to Cart
+                  </button>
+              }
+
             </div>
           </div>
         );

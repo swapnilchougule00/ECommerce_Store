@@ -37,7 +37,8 @@ const cartReducer = createReducer(
     },
 
     remove: (state, action) => {
-      state.cartItems = state.cartItems.filter((i) => i.id !== action.payload);
+      console.log(action.payload)
+      state.cartItems = state.cartItems.filter((i) => i.id !== action.payload || action.payload.id);
     },
 
     calculate: (state) => {
